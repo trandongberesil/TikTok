@@ -6,7 +6,6 @@ function App() {
   return (
     <BrowserRouter>
       <div className="App">
-        <h1>App page</h1>
         <Routes>
           {publicRoutes.map((route, index) => {
             const Page = route.component;
