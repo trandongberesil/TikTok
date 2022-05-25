@@ -27,6 +27,13 @@ const MENU_ITEMS = [
   {
     icon: <FontAwesomeIcon icon={faEarthAsia} />,
     title: "English",
+    children: {
+      title: "Language",
+      data: [
+        { code: "end", title: "Englist" },
+        { code: "vie", title: "Tiếng Việt" },
+      ],
+    },
   },
   {
     icon: <FontAwesomeIcon icon={faCircleQuestion} />,
@@ -38,6 +45,16 @@ const MENU_ITEMS = [
     title: "Keyboard shortcuts",
   },
 ];
+
+//handle Logic
+const handleMenuChange = (menuItem) => {
+  //console.log(menuItem);
+  switch (menuItem.type) {
+    case "language":
+    default:
+      return;
+  }
+};
 
 function Header() {
   const [searchResult, setSearchResult] = useState([]);
@@ -90,7 +107,7 @@ function Header() {
           <Button primary onClick={() => alert("he")}>
             Log in
           </Button>
-          <Menu items={MENU_ITEMS}>
+          <Menu items={MENU_ITEMS} onChange={handleMenuChange}>
             <button className={cx("more-btn")}>
               <FontAwesomeIcon icon={faEllipsisVertical} />
             </button>
