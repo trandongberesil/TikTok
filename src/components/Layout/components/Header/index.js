@@ -23,7 +23,7 @@ import images from "~/assets/images";
 ///component
 import Button from "~/components/Button";
 import Menu from "~/components/Popper/Menu";
-import { UploadIcon } from "~/components/Icons";
+import { UploadIcon, MessageIcon, InboxIcon } from "~/components/Icons";
 import Image from "~/components/Image";
 import Search from "../Search";
 
@@ -106,7 +106,16 @@ function Header() {
               <Tippy delay={[0, 200]} content="Upload video" placement="bottom">
                 <button className={cx("action-btn")}>
                   <UploadIcon />
-                  <FontAwesomeIcon icon={faCloudUpload} />
+                </button>
+              </Tippy>
+              <Tippy delay={[0, 200]} content="Message" placement="bottom">
+                <button className={cx("action-btn")}>
+                  <MessageIcon />
+                </button>
+              </Tippy>
+              <Tippy delay={[0, 200]} content="inbox" placement="bottom">
+                <button className={cx("action-btn")}>
+                  <InboxIcon />
                 </button>
               </Tippy>
             </>
@@ -124,7 +133,7 @@ function Header() {
           >
             {currentUser ? (
               <Image
-                src="https://p9-sign-sg.tiktokcdn.com/aweme/100x100/tos-alisg-avt-0068/56657c2f3c236d5c29f943c156ae6be0.jpeg?x-expires=1653703200&x-signature=weYTeMregNGX1s1GxaX1HloyjrE%3D"
+                src="https://files.fullstack.edu.vn/f8-prod/user_avatars/1/623d4b2d95cec.png"
                 alt="Nguyen Van A"
                 className={cx("user-avata")}
                 // fallback={

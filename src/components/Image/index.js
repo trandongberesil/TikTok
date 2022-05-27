@@ -13,7 +13,7 @@ const Image = forwardRef(
     },
     ref
   ) => {
-    const [fallback, setFallback] = useState([]);
+    const [fallback, setFallback] = useState("");
 
     const handleError = () => {
       setFallback(customFallback);
