@@ -1,23 +1,17 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faCircleQuestion,
-  faCircleXmark,
-  faCloud,
   faCloudUpload,
   faCoins,
   faEarthAsia,
   faEllipsisVertical,
   faGear,
   faKeyboard,
-  faMagnifyingGlass,
-  faMessage,
   faSignOut,
-  faSpinner,
   faUser,
 } from "@fortawesome/free-solid-svg-icons";
 
 //tippy
-import HeadlessTippy from "@tippyjs/react/headless";
 import Tippy from "@tippyjs/react";
 import "tippy.js/dist/tippy.css";
 
@@ -27,13 +21,11 @@ import classNames from "classnames/bind";
 import images from "~/assets/images";
 
 ///component
-import { useEffect, useState } from "react";
-import { Wrapper as PopperWrapper } from "~/components/Popper";
-import AccountItem from "~/components/AccountItem";
 import Button from "~/components/Button";
 import Menu from "~/components/Popper/Menu";
 import { UploadIcon } from "~/components/Icons";
 import Image from "~/components/Image";
+import Search from "../Search";
 
 const cx = classNames.bind(style);
 
@@ -61,14 +53,6 @@ const MENU_ITEMS = [
 ];
 
 function Header() {
-  const [searchResult, setSearchResult] = useState([]);
-
-  // useEffect(() => {
-  //   setTimeout(() => {
-  //     setSearchResult([1, 2, 3]);
-  //   }, 1000);
-  // });
-
   const currentUser = true;
 
   //handle Logic
@@ -113,34 +97,7 @@ function Header() {
           <img src={images.logo} alt="logo" />
         </div>
         {/* search */}
-        <HeadlessTippy
-          //visible={searchResult != 0}
-          interactive="true"
-          render={(attrs) => (
-            <div className={cx("search-result")} tabIndex="-1" {...attrs}>
-              <PopperWrapper>
-                <h4 className={cx("search-title")}>Account</h4>
-                <AccountItem />
-                <AccountItem />
-                <AccountItem />
-                <AccountItem />
-                <AccountItem />
-                <AccountItem />
-              </PopperWrapper>
-            </div>
-          )}
-        >
-          <div className={cx("search")}>
-            <input type="text" placeholder="Search accounts and videos" />
-            <button className={cx("clear-btn")}>
-              <FontAwesomeIcon icon={faCircleXmark} />
-            </button>
-            <FontAwesomeIcon className={cx("loading")} icon={faSpinner} />
-            <button className={cx("search-btn")}>
-              <FontAwesomeIcon icon={faMagnifyingGlass} />
-            </button>
-          </div>
-        </HeadlessTippy>
+        <Search />
         {/* end search */}
         {/* actions */}
         <div className={cx("actions")}>

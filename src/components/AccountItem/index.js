@@ -2,11 +2,12 @@ import style from "./AccountItem.module.scss";
 import classNames from "classnames/bind";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheckCircle } from "@fortawesome/free-solid-svg-icons";
+import Image from "../Image";
 const cx = classNames.bind(style);
 function AccountItem() {
   return (
     <div className={cx("wrapper")}>
-      <img
+      <Image
         className={cx("avata")}
         src="https://p58-sign-sg.tiktokcdn.com/tos-alisg-avt-0068/3307ffeaa5801f6896223b5d4a153a3d~c5_300x300.webp?x-expires=1653544800&x-signature=JjrvS6pO3ia7P5EYsKTRkbMR%2B%2Fw%3D"
         alt="avata"
