@@ -20,6 +20,8 @@ import classNames from "classnames/bind";
 import images from "~/assets/images";
 
 ///component
+import { Link } from "react-router-dom";
+import routesConfig from "~/config/routes";
 import Button from "~/components/Button";
 import Menu from "~/components/Popper/Menu";
 import { UploadIcon, MessageIcon, InboxIcon } from "~/components/Icons";
@@ -68,7 +70,7 @@ function Header() {
     {
       icon: <FontAwesomeIcon icon={faUser} />,
       title: "View profile",
-      to: "@viet",
+      to: "/profile",
     },
     {
       icon: <FontAwesomeIcon icon={faCoins} />,
@@ -92,12 +94,12 @@ function Header() {
   return (
     <div className={cx("wrapper")}>
       <div className={cx("inner")}>
-        <div className={cx("logo")}>
+        <Link to={routesConfig.home} className={cx("logo")}>
           <img src={images.logo} alt="logo" />
-        </div>
+        </Link>
         {/* search */}
         <Search />
-        {/* end search */}
+
         {/* actions */}
         <div className={cx("actions")}>
           {currentUser ? (
@@ -126,6 +128,7 @@ function Header() {
               </Button>
             </>
           )}
+          {/* Menu ... */}
           <Menu
             items={currentUser ? userMenu : MENU_ITEMS}
             onChange={handleMenuChange}
@@ -145,6 +148,7 @@ function Header() {
               </button>
             )}
           </Menu>
+          {/* End Menu ... */}
         </div>
       </div>
     </div>

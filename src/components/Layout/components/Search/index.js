@@ -68,6 +68,14 @@ function Search() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [debounced]);
 
+  const handleChange = (e) => {
+    const searchValue = e.target.value;
+
+    if (!searchValue.startsWith(" ")) {
+      setSearchValue(searchValue);
+    }
+  };
+
   return (
     <div>
       <HeadlessTippy
@@ -89,7 +97,7 @@ function Search() {
           <input
             type="text"
             placeholder="Search accounts and videos"
-            onChange={(e) => setSearchValue(e.target.value)}
+            onChange={(e) => handleChange(e)}
             value={searchValue}
             ref={inputRef}
             onFocus={() => setShowResult(true)}
@@ -102,7 +110,10 @@ function Search() {
           {loading && (
             <FontAwesomeIcon className={cx("loading")} icon={faSpinner} />
           )}
-          <button className={cx("search-btn")}>
+          <button
+            className={cx("search-btn")}
+            onMouseDown={(e) => e.preventDefault()}
+          >
             <SearchIcon />
           </button>
         </div>

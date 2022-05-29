@@ -10,7 +10,12 @@ const cx = classNames.bind(style);
 
 const defaultFn = () => {};
 
-function Menu({ children, items = [], onChange = defaultFn }) {
+function Menu({
+  hideOnClick = false,
+  children,
+  items = [],
+  onChange = defaultFn,
+}) {
   const [history, setHistory] = useState([{ data: items }]);
   const current = history[history.length - 1];
 
@@ -39,6 +44,7 @@ function Menu({ children, items = [], onChange = defaultFn }) {
       delay={[0, 700]}
       offset={[12, 8]} //w - h
       placement="bottom-end"
+      hideOnClick={hideOnClick}
       interactive="true"
       render={(attrs) => (
         <div className={cx("menu-list")} tabIndex="-1" {...attrs}>
