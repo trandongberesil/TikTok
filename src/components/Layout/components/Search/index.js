@@ -77,8 +77,11 @@ function Search() {
   };
 
   return (
+    ///Tippy Using a wrapper <div> or <span> tag around the reference element solves
+    //this by creating a new parentNode context.
     <div>
       <HeadlessTippy
+        //appendTo={() => document.body}
         visible={searchResult.length > 0 && showResult}
         onClickOutside={handleHideResult}
         interactive="true"

@@ -39,6 +39,7 @@ const MENU_ITEMS = [
       data: [
         { code: "end", title: "Englist" },
         { code: "vie", title: "Tiếng Việt" },
+        { code: "end", title: "Englist" },
       ],
     },
   },
