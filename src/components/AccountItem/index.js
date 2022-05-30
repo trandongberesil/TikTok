@@ -5,7 +5,6 @@ import { faCheckCircle } from "@fortawesome/free-solid-svg-icons";
 import Image from "../Image";
 
 import { Link } from "react-router-dom";
-import routesConfig from "~/config/routes";
 
 const cx = classNames.bind(style);
 
