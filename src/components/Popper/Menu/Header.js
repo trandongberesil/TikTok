@@ -4,6 +4,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import classNames from "classnames/bind";
 import style from "./Menu.module.scss";
 
+import PropTypes from "prop-types";
+
 const cx = classNames.bind(style);
 
 function Header({ title, onBack }) {
@@ -16,5 +18,10 @@ function Header({ title, onBack }) {
     </header>
   );
 }
+
+Header.propTypes = {
+  title: PropTypes.string.isRequired,
+  onBack: PropTypes.func,
+};
 
 export default Header;
