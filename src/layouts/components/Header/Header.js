@@ -53,6 +53,31 @@ const MENU_ITEMS = [
   },
 ];
 
+const userMenu = [
+  {
+    icon: <FontAwesomeIcon icon={faUser} />,
+    title: "View profile",
+    to: "/profile",
+  },
+  {
+    icon: <FontAwesomeIcon icon={faCoins} />,
+    title: "Get coins",
+    to: "/coin",
+  },
+  {
+    icon: <FontAwesomeIcon icon={faGear} />,
+    title: "Setting",
+    to: "/setting",
+  },
+  ...MENU_ITEMS,
+  {
+    icon: <FontAwesomeIcon icon={faSignOut} />,
+    title: "Log out",
+    to: "",
+    separate: true,
+  },
+];
+
 function Header() {
   const currentUser = true;
 
@@ -66,30 +91,6 @@ function Header() {
     }
   };
 
-  const userMenu = [
-    {
-      icon: <FontAwesomeIcon icon={faUser} />,
-      title: "View profile",
-      to: "/profile",
-    },
-    {
-      icon: <FontAwesomeIcon icon={faCoins} />,
-      title: "Get coins",
-      to: "/coin",
-    },
-    {
-      icon: <FontAwesomeIcon icon={faGear} />,
-      title: "Setting",
-      to: "/setting",
-    },
-    ...MENU_ITEMS,
-    {
-      icon: <FontAwesomeIcon icon={faSignOut} />,
-      title: "Log out",
-      to: "",
-      separate: true,
-    },
-  ];
   return (
     <div className={cx("wrapper")}>
       <div className={cx("inner")}>
@@ -122,7 +123,7 @@ function Header() {
           ) : (
             <>
               <Button textOnly>Upload</Button>
-              <Button primary onClick={() => alert("he")}>
+              <Button primary to="/" onClick={() => alert("hello")}>
                 Log in
               </Button>
             </>

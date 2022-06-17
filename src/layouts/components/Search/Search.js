@@ -22,7 +22,7 @@ const cx = classNames.bind(style);
 function Search() {
   const [searchResult, setSearchResult] = useState([]);
   const [searchValue, setSearchValue] = useState("");
-  const [showResult, setShowResult] = useState(true);
+  const [showResult, setShowResult] = useState(false);
   const [loading, setLoading] = useState(false);
 
   const inputRef = useRef();
@@ -44,10 +44,10 @@ function Search() {
   };
 
   ///useDebounce nhan searchValue sau 500ms moi return lai debounced
-  const debounced = useDebounce(searchValue, 500);
+  const debouncedValue = useDebounce(searchValue, 500);
 
   useEffect(() => {
-    if (!debounced.trim()) {
+    if (!debouncedValue.trim()) {
       setSearchResult([]);
       return;
     }
@@ -57,7 +57,7 @@ function Search() {
     const fetchApi = async () => {
       setLoading(true);
 
-      const result = await searchServices.search(debounced);
+      const result = await searchServices.search(debouncedValue);
       setSearchResult(result);
 
       setLoading(false);
@@ -66,7 +66,7 @@ function Search() {
     fetchApi();
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [debounced]);
+  }, [debouncedValue]);
 
   const handleChange = (e) => {
     const searchValue = e.target.value;
