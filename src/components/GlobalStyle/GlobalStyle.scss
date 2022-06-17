@@ -46,6 +46,18 @@ body {
   font-weight: 400;
 }
 
+@font-face {
+  font-family: ProximaNova;
+  src: url("/assets/fonts/Proxima-Nova-Bold.woff");
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: SofiaPro;
+  src: url("/assets/fonts/sofiapro-bold.woff");
+  font-weight: 700;
+}
+
 ///button
 button,
 input,
